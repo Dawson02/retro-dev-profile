@@ -1,0 +1,228 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Retro Gaming Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 33 96% 56%;  /* Hot Orange #fba92c */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 33 96% 56%;  /* Hot Orange */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 33 96% 56%;
+
+    --radius: 0.125rem;  /* Sharp corners for retro feel */
+
+    /* Custom retro colors */
+    --retro-orange: 33 96% 56%;
+    --retro-orange-glow: 33 96% 66%;
+    --retro-green: 120 100% 50%;
+    --retro-blue: 240 100% 70%;
+    --retro-purple: 280 100% 70%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 33 96% 56%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 33 96% 56%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 33 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  .font-pixel {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  /* Retro glow effects */
+  .retro-glow {
+    box-shadow: 0 0 10px hsl(var(--retro-orange)), 
+                0 0 20px hsl(var(--retro-orange)),
+                0 0 30px hsl(var(--retro-orange));
+  }
+
+  .retro-glow-subtle {
+    box-shadow: 0 0 5px hsl(var(--retro-orange) / 0.3);
+  }
+
+  .retro-border {
+    border: 2px solid hsl(var(--retro-orange));
+  }
+
+  .retro-gradient {
+    background: linear-gradient(45deg, 
+      hsl(var(--background)), 
+      hsl(var(--retro-orange) / 0.1)
+    );
+  }
+
+  /* Pixel art styling */
+  .pixel-corners {
+    clip-path: polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px));
+  }
+
+  /* Terminal cursor */
+  .terminal-cursor::after {
+    content: '▋';
+    color: hsl(var(--retro-orange));
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Scan lines effect */
+  .scan-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Hover effects */
+  .retro-hover {
+    transition: all 0.3s ease;
+  }
+
+  .retro-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px hsl(var(--retro-orange) / 0.6);
+  }
+
+  /* Button styling */
+  .retro-button {
+    @apply bg-primary text-primary-foreground px-6 py-3 font-pixel text-xs uppercase tracking-wider;
+    @apply border-2 border-primary pixel-corners retro-hover;
+    @apply hover:bg-transparent hover:text-primary;
+  }
+
+  /* Text effects */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--retro-orange));
+  }
+
+  .text-shadow-retro {
+    text-shadow: 2px 2px 0px hsl(var(--background));
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--retro-orange) / 0.3); }
+  50% { box-shadow: 0 0 20px hsl(var(--retro-orange) / 0.8); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
