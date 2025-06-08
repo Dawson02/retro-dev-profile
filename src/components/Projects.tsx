@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +12,7 @@ const Projects = () => {
       tech: ["Python", "PyQt", "Clipboard API"],
       features: ["Global Ctrl+C detection", "Clipboard history", "User-friendly interface"],
       status: "Active Development",
-      github: "#",
+      github: "https://github.com/Dawson02/CopyThat",
       demo: null
     },
     {
@@ -22,7 +21,7 @@ const Projects = () => {
       tech: ["React", "Firebase", "Real-time DB"],
       features: ["Real-time messaging", "User authentication", "Presence detection"],
       status: "Completed",
-      github: "#",
+      github: "https://github.com/Dawson02/ChatterBox",
       demo: null
     },
     {
@@ -31,7 +30,7 @@ const Projects = () => {
       tech: ["React", "Weather API", "Geolocation"],
       features: ["Global weather data", "Location search", "Forecast display"],
       status: "Completed",
-      github: "#",
+      github: "https://github.com/Dawson02/Weather_App_1",
       demo: null
     },
     {
@@ -40,8 +39,8 @@ const Projects = () => {
       tech: ["React", "Node.js", "PostgreSQL", "Supabase"],
       features: ["Service listings", "User authentication", "Provider management"],
       status: "Deployed",
-      github: "#",
-      demo: "https://localpro.example.com" // Replace with actual URL
+      github: "https://github.com/Dawson02/LocalPro",
+      demo: "https://locallyservices.com/" 
     }
   ];
 
@@ -70,8 +69,10 @@ const Projects = () => {
                   {project.status}
                 </Badge>
               </div>
-              <Button variant="ghost" size="sm" className="p-2">
-                <Github className="w-4 h-4" />
+              <Button variant="ghost" size="sm" className="p-2" asChild>
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4" />
+                </a>
               </Button>
             </div>
             <CardDescription className="font-mono text-muted-foreground">
@@ -126,8 +127,11 @@ const Projects = () => {
                 variant="outline" 
                 size="sm" 
                 className="pixel-corners border-primary/50 text-primary font-mono text-xs"
+                asChild
               >
-                Source Code
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  Source Code
+                </a>
               </Button>
             </div>
           </CardContent>

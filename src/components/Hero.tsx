@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="font-mono text-left bg-card border border-border pixel-corners p-6 retro-glow-subtle max-w-2xl mx-auto">
         <div className="text-primary mb-2">dawson@portfolio:~$ whoami</div>
         <div className="text-foreground mb-4">
-          <span className="text-primary">&gt;</span> Junior Software Developer
+          <span className="text-primary">&gt;</span> Software Developer
         </div>
         <div className="text-primary mb-2">dawson@portfolio:~$ cat intro.txt</div>
         <div className="text-foreground mb-4">
@@ -63,8 +63,15 @@ const Hero = () => {
             variant="outline" 
             className="pixel-corners border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground font-pixel text-xs"
           >
-            Download CV
+          <a
+            href="/Dawson_Murray_SD_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="btn-primary">Download CV</button>
+          </a>
           </Button>
+          
         </div>
       </div>
 

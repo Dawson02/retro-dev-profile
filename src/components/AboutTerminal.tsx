@@ -30,7 +30,7 @@ const AboutTerminal = () => {
   ];
 
   const interests = [
-    "🚗 Automotive Technology & AR",
+    "🚗 Automotive Technology",
     "🎮 Gaming & Interactive Design", 
     "⚡ Emerging Technologies",
     "🛠️ Open Source Contributions"
@@ -78,6 +78,15 @@ const AboutTerminal = () => {
                   "Combining creativity with technology to build meaningful solutions"
                 </div>
 
+                <div className="mt-4">
+                  <span className="text-primary">dawson@portfolio:~$</span> system-status --short
+                </div>
+                <div className="pl-4 space-y-1 text-foreground">
+                <div>Current Focus: React Native</div>
+                <div>Last Bug: Forgot a semicolon</div>
+                <div>Coffee: 92%</div>
+                </div>
+
                 <div className="mt-4 text-primary terminal-cursor">
                   dawson@portfolio:~$ 
                 </div>
@@ -114,9 +123,9 @@ const AboutTerminal = () => {
                   <Badge variant="outline" className="pixel-corners border-green-500 text-green-400">
                     LocalPro Platform
                   </Badge>
-                  <Badge variant="outline" className="pixel-corners border-yellow-500 text-yellow-400">
+                  {/* <Badge variant="outline" className="pixel-corners border-yellow-500 text-yellow-400">
                     AR Car Visualization
-                  </Badge>
+                  </Badge> */}
                   <Badge variant="outline" className="pixel-corners border-blue-500 text-blue-400">
                     Portfolio v2.0
                   </Badge>
@@ -127,7 +136,6 @@ const AboutTerminal = () => {
                 <h4 className="font-mono text-primary mb-3">&gt; Fun Facts:</h4>
                 <div className="space-y-2 text-sm text-muted-foreground font-mono">
                   <div>• Graduated from Keyin College (2023)</div>
-                  <div>• Freelancing since March 2024</div>
                   <div>• Gaming enthusiast & car modifier</div>
                   <div>• Always learning new technologies</div>
                 </div>
