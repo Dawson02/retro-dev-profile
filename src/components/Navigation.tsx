@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -85,17 +86,45 @@ const Navigation = () => {
               {item.label}
             </button>
           ))}
-        </div>
+        </div>        
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <Button variant="ghost" size="sm" className="font-pixel text-xs">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="font-pixel text-xs"
+            onClick={() => setIsMobileMenuOpen(prev => !prev)} 
+          >
             Menu
           </Button>
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden px-4 pb-4 flex flex-col space-y-2 bg-background border-t border-border">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => {
+                scrollToSection(item.id);
+                setIsMobileMenuOpen(false); // 👈 Close menu after clicking
+              }}
+              className={`text-left w-full px-4 py-2 text-sm font-mono transition-all duration-300 pixel-corners ${
+                activeSection === item.id
+                  ? 'bg-primary text-primary-foreground retro-glow'
+                  : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
+
 
 export default Navigation;

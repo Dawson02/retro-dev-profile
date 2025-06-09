@@ -226,3 +226,10 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .dm-hover {
+    top: 100px;
+    position: relative; 
+  }
+}

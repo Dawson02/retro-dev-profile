@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div className="text-center space-y-8 px-4 max-w-4xl mx-auto">
       {/* Pixel Avatar */}
-      <div className="mb-8 animate-float">
+      <div className="mb-8 animate-float mt-16 md:mt-8" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
         <div className="w-32 h-32 mx-auto bg-primary pixel-corners retro-glow-subtle relative">
           <div className="absolute inset-2 bg-background pixel-corners">
             <div className="w-full h-full flex items-center justify-center font-pixel text-2xl text-primary">
