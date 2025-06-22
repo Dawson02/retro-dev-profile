@@ -135,7 +135,7 @@ const AboutTerminal = () => {
               <div className="pt-4">
                 <h4 className="font-mono text-primary mb-3">&gt; Fun Facts:</h4>
                 <div className="space-y-2 text-sm text-muted-foreground font-mono">
-                  <div>• Graduated from Keyin College (2023)</div>
+                  <div>• Graduated from Keyin College (2024)</div>
                   <div>• Gaming enthusiast & car modifier</div>
                   <div>• Always learning new technologies</div>
                 </div>
